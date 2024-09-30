@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-Means Clustering Visualization</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> 
+</head>
+<body>
+    <h1>K-Means Clustering Visualization</h1>
+    <div class="container">
+        <div class="controls">
+            <label for="centroids-input">Number of Centroids:</label>
+            <input type="number" id="centroids-input" value="8" min="1" style="width: 50px;">
+        </div>
+        <div class="controls">
+            <label for="method-select">Select K-Means Method:</label>
+            <select id="method-select">
+                <option value="random">Random Initialization</option>
+                <option value="farthest">Farthest First Initialization</option>
+                <option value="kmeans++">K-Means++ Initialization</option>
+                <option value="manual">Manual (you select centroids)</option>
+            </select>
+        </div>
+        <div class="controls">
+            <button id="runButton">Run to Convergence</button>
+            <button id="step-button">Step Through Iterations</button>
+            <button id="reset-button">Reset K-Means</button>
+            <button id="generate-button">Generate New Dataset</button>
+        </div>
+        <div class="plot-container">
+            <p id="plot-message">The K-means plot will be displayed here after you run the clustering.</p>
+            <p id="convergence-message" style="display: none;">Convergence has been reached!</p>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>
